@@ -1,15 +1,21 @@
 const express = require('express');
+const exphbs  = require('express-handlebars');
 const nodemon = require('nodemon');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const dotenv = require('dotenv');
 
+
 //Load environment Variables
 dotenv.config({path: './config/config.env'});
 
 //Initialize express.
 const app = express();
+
+//Handlebars middleware
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 //Enable cors
 app.use(cors());
@@ -18,7 +24,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //Routes
-app.use('/', require('./routes/students'))
+app.use('/', require('./routes/students'));
+
+
 
 const PORT = process.env.PORT || 3000;
 
