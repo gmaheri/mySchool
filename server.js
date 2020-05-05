@@ -5,10 +5,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const dotenv = require('dotenv');
-
+const connectDB = require('./config/db')
 
 //Load environment Variables
 dotenv.config({path: './config/config.env'});
+
+//connect DB
+connectDB();
 
 //Initialize express.
 const app = express();
@@ -25,7 +28,6 @@ app.use(bodyParser.json());
 
 //Routes
 app.use('/', require('./routes/students'));
-
 
 
 const PORT = process.env.PORT || 3000;
