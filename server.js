@@ -16,6 +16,9 @@ connectDB();
 //Initialize express.
 const app = express();
 
+//Static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 //Handlebars middleware
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');

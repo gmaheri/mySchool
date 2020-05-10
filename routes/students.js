@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Student = require('../models/Students')
 
 //Home route
 router.get('/', (req, res) => {
@@ -8,6 +9,11 @@ router.get('/', (req, res) => {
     title: title
   })
 });
+
+//View all students
+router.get('/students', (req, res) => {
+  res.render('students/add')
+})
 
 //About route
 router.get('/about', (req, res) => {
