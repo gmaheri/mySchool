@@ -1,31 +1,60 @@
 const mongoose = require('mongoose');
 
 const StudentsSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  admnNo: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  stream: {
+    type: String,
+    required: true
+  },
+  birthDate: {
+    type: Date,
+    required: true
+  },
+  admnDate: {
+    type: Date,
     required: true
   },
   gender:{
     type: String,
     required: true
   },
-  admno: {
-    type: Number,
-    required: true,
-    unique: true
-  },
-  class: {
-    type: String,
-    required: true
-  },
-  dob: {
-    type: Date,
-    required: true
-  },
-  yob: {
-    type: Date,
-    required: true
-  }
+ parentName: {
+   type: String,
+   required: true
+ },
+ phoneNumber: {
+   type: Number,
+   required: true
+ },
+ altphoneNumber: {
+   type: Number,
+   required: true
+ },
+ email: {
+   type: String,
+   required: true
+ },
+ address: {
+   type: String,
+   required: true
+ },
+ createdAt: {
+   type: Date,
+   default: Date.now
+ }
+
 });
 
 module.exports = mongoose.model('Student', StudentsSchema);

@@ -23,13 +23,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-//Enable cors
+// Enable cors
 app.use(cors());
 
-//Enable body-parser
-app.use(bodyParser.json());
+// Body-parser Middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
-//Routes
+// parse application/json
+app.use(bodyParser.json())
+
+// Routes
 app.use('/', require('./routes/students'));
 
 

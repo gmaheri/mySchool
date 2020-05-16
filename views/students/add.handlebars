@@ -1,12 +1,12 @@
 <div class="card card-body">
+   <h2>Add Pupil</h2>
       <div class="container">
-        <form class="form-horizontal" role="form">
-          <h2>Add Pupil</h2>
+        <form action="/student" method="POST" class="form-horizontal" role="form">
           <div class="form-group">
             <div class="row">
               <label for="firstName" class="col-sm-3 control-label">First Name</label>
               <div class="col-sm-9">
-                <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus required/>
+                <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus required/>
               </div>
             </div>
           </div>
@@ -14,7 +14,7 @@
             <div class="row">
               <label for="lastName" class="col-sm-3 control-label">Last Name</label>
               <div class="col-sm-9">
-                <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus required/>
+                <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus required/>
               </div>
             </div>
           </div>
@@ -22,7 +22,7 @@
             <div class="row">
               <label for="admnNo" class="col-sm-3 control-label">Admn Number</label>
               <div class="col-sm-9">
-                <input type="text" id="admnNo" placeholder="Admission Number" class="form-control" name="admnNo" required/>
+                <input type="text" name="admnNo" placeholder="Admission Number" class="form-control" name="admnNo" required/>
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
             <div class="row">
               <label for="class" class="col-sm-3 control-label">Class</label>
               <div class="col-sm-9">
-                <input type="text" id="class" placeholder="Enter class & stream number" class="form-control" autofocus required />
+                <input type="text" name="class" placeholder="Enter class & stream number" class="form-control" autofocus required />
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
             <div class="row">
               <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
               <div class="col-sm-9">
-                <input type="date" id="birthDate" class="form-control" required />
+                <input type="date" name="birthDate" class="form-control" required />
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
             <div class="row">
               <label for="admnDate" class="col-sm-3 control-label" >Date Of Admission</label>
               <div class="col-sm-9">
-                <input type="date" id="admnDate" class="form-control" required />
+                <input type="date" name="admnDate" class="form-control" required />
               </div>
             </div>
           </div>
@@ -57,25 +57,25 @@
                 <div class="row">
                   <div class="col-6">
                     <label class="radio-inline">
-                      <input type="radio" id="femaleRadio" value="Female"/> Female
+                      <input type="radio" name="gender" value="Female" required="required" /> Female
                     </label>
                   </div>
                   <div class="col-6">
                     <label class="radio-inline">
-                      <input type="radio" id="maleRadio" value="Male"/> Male
+                      <input type="radio" name="gender" value="Male" /> Male
                     </label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <hr />
+          <hr/>
           <h2>Parent/Guardian Details</h2>
           <div class="form-group">
             <div class="row">
               <label for="parentName" class="col-sm-3 control-label" >Full Name</label>
               <div class="col-sm-9">
-                <input type="text" id="parentName" placeholder="Full Name" class="form-control" autofocus required />
+                <input type="text" name="parentName" placeholder="Full Name" class="form-control" autofocus required />
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
             <div class="row">
               <label for="phoneNumber" class="col-sm-3 control-label" >Cell </label>
               <div class="col-sm-9">
-                <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" required />
+                <input type="phoneNumber" name="phoneNumber" placeholder="Phone number" class="form-control" required />
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
             <div class="row">
               <label for="AltphoneNumber" class="col-sm-3 control-label" >Alt Cell</label>
               <div class="col-sm-9">
-                <input type="phoneNumber" id="AltphoneNumber" placeholder=" Alternative Phone number" class="form-control" required/>
+                <input type="phoneNumber" name="altphoneNumber" placeholder=" Alternative Phone number" class="form-control" required/>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
             <div class="row">
               <label for="email" class="col-sm-3 control-label">Email</label>
               <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control" name="email" required/>
+                <input type="email" name="email" placeholder="Email" class="form-control" name="email" required/>
               </div>
             </div>
           </div>
@@ -107,13 +107,13 @@
             <div class="row">
               <label for="address" class="col-sm-3 control-label">Physical Address</label>
               <div class="col-sm-9">
-                <input type="text" id="address" placeholder="Address" class="form-control" autofocus required/>
+                <input type="text" name="address" placeholder="Address" class="form-control" autofocus required/>
               </div>
             </div>
           </div>
           <!-- /.form-group -->
           <button type="submit" class="btn btn-info btn-block">
-            Register Pupil
+            Register student
           </button>
         </form>
         <!-- /form -->
