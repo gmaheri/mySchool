@@ -20,7 +20,7 @@ router.post('/student', (req, res) => {
   const newStudent = {
     firstName : req.body.firstName,
     lastName : req.body.lastName,
-    admnNo : req.body.admnNo,
+    admno : req.body.admno,
     stream : req.body.class,
     birthDate : req.body.birthDate,
     admnDate : req.body.admnDate,
@@ -31,13 +31,15 @@ router.post('/student', (req, res) => {
     email : req.body.email,
     address : req.body.address
   }
+  //console.log(req.body.studentNo)
  new Student(newStudent).save()
  .then(student => {
+   console.log(newStudent)
    res.redirect('/allstudents')
  })
  .catch(error => {
    console.log(error)
-   //display error if duplicate key for admn numner
+   //display error if user enters duplicate key for admno
  });
 })
 

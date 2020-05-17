@@ -9,10 +9,10 @@ const StudentsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  admnNo: {
-    type: Number,
-    required: true,
-    unique: true
+  admno: {
+    type: String,
+    unique: true,
+    required: true
   },
   stream: {
     type: String,
