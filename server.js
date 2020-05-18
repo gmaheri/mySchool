@@ -7,19 +7,19 @@ const path = require('path');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db')
 
-//Load environment Variables
+// Load environment Variables
 dotenv.config({path: './config/config.env'});
 
-//connect DB
+// connect DB
 connectDB();
 
-//Initialize express.
+// Initialize express.
 const app = express();
 
-//Static folder
+// Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Handlebars middleware
+// Handlebars middleware
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -35,7 +35,6 @@ app.use(bodyParser.json())
 
 // Routes
 app.use('/', require('./routes/students'));
-
 
 const PORT = process.env.PORT || 3000;
 
