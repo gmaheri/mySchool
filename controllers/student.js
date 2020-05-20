@@ -19,7 +19,7 @@ exports.addStudent = (req, res) => {
 
  new Student(newStudent).save()
  .then(student => {
-   res.redirect('/allstudents')
+   res.redirect('/students')
  })
  .catch(error => {
    let errors = [];
@@ -32,3 +32,15 @@ exports.addStudent = (req, res) => {
    };
  });
 };
+
+
+// Fetch students from DB
+exports.fetchStudent = (req, res) => {
+  Student.find({}).lean()
+  .then(students => {
+    res.render('/students', {
+      students: students
+    })
+  })
+  .catch(error => console.log(error))
+}

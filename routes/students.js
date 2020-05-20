@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Student = require('../models/Students');
-const {addStudent} = require('../controllers/student')
+const {addStudent, fetchStudent} = require('../controllers/student')
 
 // Home route
 router.get('/', (req, res) => {
@@ -14,14 +14,26 @@ router.get('/', (req, res) => {
 });
 
 // Add students
-router.get('/student', (req, res) => {
+router.get('/addstudent', (req, res) => {
   res.render('students/add')
 })
 
 //Add student form process
 router
-.route('/student')
+.route('/addstudent')
 .post(addStudent);
+
+// Display all Students from DB
+router.get('/students', (req,res) => {
+  Student.find({}).lean().sort({admno: 'desc'})
+  .then(students => {
+    res.render('students/allstudents', {
+      students: students
+    })
+  })
+  .catch(error => console.log(error))
+});
+
 
 // About route
 router.get('/about', (req, res) => {

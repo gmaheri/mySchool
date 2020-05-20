@@ -1,0 +1,18 @@
+{{#each students}}
+<div class="card card-body">
+    <p>{{firstName}}</p>
+    <p>{{lastName}}</p>
+    <p>{{admno}}</p>
+    <p>{{stream}}</p>
+    <p>{{birthDate}}</p>
+    <p>{{admnDate}}</p>
+    <p>{{gender}}</p>
+    <p>{{parentName}}</p>
+    <p>{{phoneNumber}}</p>
+    <p>{{altphoneNumber}}</p>
+    <p>{{email}}</p>
+    <p>{{address}}</p>
+</div>
+{{else}}
+<p>No students record in the database</p>
+{{/each}}
