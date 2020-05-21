@@ -1,18 +1,69 @@
-{{#each students}}
-<div class="card card-body">
-    <p>{{firstName}}</p>
-    <p>{{lastName}}</p>
-    <p>{{admno}}</p>
-    <p>{{stream}}</p>
-    <p>{{birthDate}}</p>
-    <p>{{admnDate}}</p>
-    <p>{{gender}}</p>
-    <p>{{parentName}}</p>
-    <p>{{phoneNumber}}</p>
-    <p>{{altphoneNumber}}</p>
-    <p>{{email}}</p>
-    <p>{{address}}</p>
+<h3><a class="btn btn-secondary" href="/addstudent"><i class="fa fa-plus"></i> Add Student</a>   Student List</h3>
+
+<div class="search_box">
+  <input class="form-control mb-2" id="search_input" type="text" placeholder="Search student by first name" aria-label="Search" onkeyup="searchStudent()">
 </div>
-{{else}}
-<p>No students record in the database</p>
-{{/each}}
+
+<table class="table table-striped" id="studentTable">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Admission Number</th>
+      <th>Class</th>
+      <th>Date of Bith</th>
+      <th>Date of Admission</th>
+      <th>Gender</th>
+      <th>Parents Name</th>
+      <th>Phone Number</th>
+      <th>Alt. Phone Number</th>
+      <th>Email</th>
+      <th>Physical Address</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody id="table-body">
+      {{#each students}}
+      <tr id="trow">
+        <td id="firstName">{{this.firstName}}</td>
+        <td>{{this.lastName}}</td>
+        <td>{{this.admno}}</td>
+        <td>{{this.stream}}</td>
+        <td>{{this.birthDate}}</td>
+        <td>{{this.admnDate}}</td>
+        <td>{{this.gender}}</td>
+        <td>{{this.parentName}}</td>
+        <td>{{this.phoneNumber}}</td>
+        <td>{{this.altphoneNumber}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.address}}</td>
+        <td>
+          <a href="/mychurch/member/edit/{{_id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+              <a href="/mychurch/member/delete/{{_id}}" onclick="return confirm('Are you sure you want to delete this member?')"> <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+        </td>
+      </tr>
+      {{else}}
+      <p>Nothing to show.</p>
+      {{/each}}
+    </tbody>
+  <script>
+    const searchStudent = () => {
+      const searchInput = document.getElementById("search_input").value.toUpperCase();
+      const studentTable = document.getElementById("studentTable");
+      const tr = studentTable.getElementsByTagName("tr");
+      for(var i=0; i<tr.length; i++){
+        let td = tr[i].getElementsByTagName("td")[0];
+        if(td){
+          let textvalue = td.textContent || td.innerHTML;
+          if(textvalue.toLocaleUpperCase().indexOf(searchInput) > -1){
+            tr[i].style.display = "";
+          } else{
+            tr[i].style.display = "none"
+          }
+        }
+      }
+      //console.log(searchInput)
+    };
+  </script>
+</table>
+
